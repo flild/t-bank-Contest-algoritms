@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    public  class Task1Intervals
+    public  class Task1Intervals:Itask
     {
-        public  void main()
+        public  string main(string input)
         {
             List<int> result = new();
-            string input = Console.ReadLine();
             if (input == null)
             {
-                Console.WriteLine(""); return;
+                return "";
             }
             var intervals = input.Split(',');
 
@@ -24,7 +23,6 @@ namespace ConsoleApp1
                 if (convertedString.Length == 1)
                 {
                     result.Add(int.Parse(convertedString[0]));
-                    break;
                 }
                 else
                 {
@@ -40,7 +38,7 @@ namespace ConsoleApp1
             {
                 stringResult = String.Concat(stringResult, num.ToString(), " ");
             }
-            Console.WriteLine(stringResult);
+            return stringResult;
         }
 
     }

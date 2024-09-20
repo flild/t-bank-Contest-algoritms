@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    public static class Task3Password
+    public class Task3Password : Itask
     {
-        public static void main()
+        public string main(string input)
         {
-            var lastPressedBtn = Console.ReadLine();
-            var allowedLetters = Console.ReadLine();
-            var maxLength = int.Parse(Console.ReadLine());
+            var inputList = input.Split('_');
+            var lastPressedBtn = inputList[0];
+            var allowedLetters = inputList[1];
+            var maxLength = int.Parse(inputList[2]);
 
             //проверить что все разрешенные буквы встречаются!!
             var minLength = allowedLetters.Length;
@@ -22,16 +23,14 @@ namespace ConsoleApp1
             if (allowedLetters.Length > maxLength)
             {
                 resultString = "-1";
-                Console.WriteLine(resultString);
-                return;
+                return resultString;
             }
             foreach (var letter in allowedLetters)
             {
                 if (!lastPressedBtn.Contains(letter))
                 {
                     resultString = "-1";
-                    Console.WriteLine(resultString);
-                    return;
+                    return resultString;
                 }
             }
             foreach (var letter in lastPressedBtn)
@@ -83,7 +82,7 @@ namespace ConsoleApp1
             }
             if (resultString == "")
                 resultString = "-1";
-            Console.WriteLine(resultString);
+            return resultString;
         }
     }
 }

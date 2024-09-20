@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    public static class Task2Snow
+    public class Task2Snow:Itask
     {
         
-        public static void main()
+        public string main(string input)
         {
             string positiveAnswer = "YES";
             string negativeAnswer = "NO";
-            int n = int.Parse(Console.ReadLine());
-            var SnowMMString = Console.ReadLine().Split(" ");
+
+            var inputList = input.Split('_');
+            int n = int.Parse(inputList[0]);
+            var SnowMMString = inputList[1].Split(" ");
 
             bool InspectionResult = false;
             List<string> resultMeasure = new List<string>(n);
@@ -79,17 +81,17 @@ namespace ConsoleApp1
 
             if (InspectionResult)
             {
-                Console.WriteLine(positiveAnswer);
+                
                 var resultString = "";
                 foreach (string s in resultMeasure)
                 {
                     resultString = resultString + s + " ";
                 }
-                Console.WriteLine(resultString);
+                return positiveAnswer + " " + resultString;
             }
             else
             {
-                Console.WriteLine(negativeAnswer);
+                return negativeAnswer;
             }
         }
     }
