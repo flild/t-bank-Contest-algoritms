@@ -7,16 +7,20 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ConsoleApp1
 {
-    public class Task4PrimeList
+    public class Task4PrimeList:Itask
     {
-        public void main()
+        public string main(string inputString)
         {
-            var input = Console.ReadLine().Split(" ");
+            var input = inputString.Split(" ");
             var minNum = long.Parse(input[0]);
             var maxNum = long.Parse(input[1]);
             int resultCount = 0;
             for(long i = minNum; i <= maxNum; i++) 
             {
+                if(i == 121)
+                {
+
+                }
                 if(IsComposite(i))
                 {
                     List<long> divisiorsNum = GetDivisiors(i);
@@ -26,7 +30,7 @@ namespace ConsoleApp1
                     }
                 }
             }
-            Console.WriteLine(resultCount);
+            return resultCount.ToString();
         }
         public bool IsComposite(long num)
         {
@@ -37,7 +41,7 @@ namespace ConsoleApp1
             if (num <= 3) return true;
             if (num%2 == 0) return false;
             if (num % 3 == 0) return false;
-            for (int i = 2; i < (int)Math.Sqrt(num); i++)
+            for (int i = 2; i <= (int)Math.Sqrt(num); i++)
             {
                 if (num % i == 0)
                     return false;

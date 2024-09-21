@@ -6,23 +6,22 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    public class Task5Hakers
+    public class Task5Hakers:Itask
     {
-        public void main()
+        public string main(string input)
         {
-
+            var inputList = input.Split('_');
             List<ResponseStruct> responseList = new();
-            var timeInput = Console.ReadLine().Split(":");
-            var n = int.Parse(Console.ReadLine());
+            var timeInput = inputList[0].Split(":");
+            var n = int.Parse(inputList[1]);
             TimeOnly startTime = new TimeOnly(int.Parse(timeInput[0]), int.Parse(timeInput[1]), int.Parse(timeInput[2]));
             TimeOnly endTime = startTime.AddHours(23).AddMinutes(59).AddMinutes(0.99);
             for (int i = 0; i < n; i++)
             {
-                var responsetInput = Console.ReadLine();
+                var responsetInput = inputList[2+i];
                 var indexOfEndTeamName = responsetInput.LastIndexOf("\"");
                 var teamName = responsetInput.Substring(1, indexOfEndTeamName-1);
                 var splitedresponse = responsetInput.Substring(indexOfEndTeamName+2).Split(" ");
-                //var splitedresponse = splitedresponse;
                 var hackTime = new TimeOnly(int.Parse(splitedresponse[0].Split(":")[0]),
                                             int.Parse(splitedresponse[0].Split(":")[1]),
                                             int.Parse(splitedresponse[0].Split(":")[2]));
@@ -90,10 +89,12 @@ namespace ConsoleApp1
                     repetedPlacesCount = 1;
                 }
             }
+            var finalResult = "";
             foreach (var res in results)
             {
-                Console.WriteLine(res.ToString());
+                finalResult += res.ToString() + " ";
             }
+            return finalResult;
         }
         public class ResponseStruct()
         {
