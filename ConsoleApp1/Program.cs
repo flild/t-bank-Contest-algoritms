@@ -5,6 +5,8 @@
 
 using System;
 using ConsoleApp1;
+using ConsoleApp1.Alice;
+using ConsoleApp1.Sber;
 using ConsoleApp1.Tests;
 Dictionary<string, string> inetrvalsData = new Dictionary<string, string>();
 inetrvalsData.Add("1-6,8-9,11", "1 2 3 4 5 6 8 9 11 ");
@@ -84,12 +86,18 @@ GraphData.Add("6_" +
 
 
 Tests taskTests = new Tests();
+//my scripts
 taskTests.TaskTests(new Task1Intervals(), inetrvalsData);
 taskTests.TaskTests(new Task2Snow(), SnowData);
 taskTests.TaskTests(new Task3Password(), PasswordData);
 taskTests.TaskTests(new Task4PrimeList(), PrimeData);
 taskTests.TaskTests(new Task5Hakers(), HackersData);
 taskTests.TaskTests(new task6Graph(), GraphData);
+//alice
+taskTests.TaskTests(new AliceTask1Interval(), inetrvalsData);
+//sber
+taskTests.TaskTests(new SberTask1Intervals(), inetrvalsData);
+taskTests.TaskTests(new SberTask2Snow(), SnowData);
 
 
 
