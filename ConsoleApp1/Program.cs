@@ -94,10 +94,16 @@ taskTests.TaskTests(new Task4PrimeList(), PrimeData);
 taskTests.TaskTests(new Task5Hakers(), HackersData);
 taskTests.TaskTests(new task6Graph(), GraphData);
 //alice
+Console.WriteLine("===============ALICE===============");
 taskTests.TaskTests(new AliceTask1Interval(), inetrvalsData);
+taskTests.TaskTests(new AliceTask4Prime(), PrimeData);
 //sber
+Console.WriteLine("===============SBER===============");
 taskTests.TaskTests(new SberTask1Intervals(), inetrvalsData);
-taskTests.TaskTests(new SberTask2Snow(), SnowData);
+taskTests.TaskTests(new SberTask3Password(), PasswordData);
+taskTests.TaskTests(new SberTask4Prime(), PrimeData);
+taskTests.TaskTests(new SberTask5Hackers(), HackersData); 
+
 
 
 

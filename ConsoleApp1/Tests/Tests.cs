@@ -26,7 +26,7 @@ namespace ConsoleApp1.Tests
                 }
                 else
                 {
-                    Console.WriteLine($"Test {Count} FAILD, expected {item.Value} not {result}");
+                    Console.WriteLine($"Test {tasker.GetType()} {Count} FAILD, expected {item.Value} not {result}");
                 }
             }
         }
